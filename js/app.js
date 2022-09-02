@@ -3,10 +3,18 @@
 
 // load category
 const loadCategory = async()=>{
+
     const url = `https://openapi.programming-hero.com/api/news/categories`
+    try {
         const res = await fetch(url)
         const data = await res.json()
         displayCategory(data);
+      } catch (error) {
+        console.error(error.message);
+       
+      }
+      
+       
 }
 
 
@@ -26,6 +34,7 @@ const displayCategory = (data)=>{
     });
 }
 
+// load All news 
 const loadNews = async (id , categoryName)=>{
 
     loadSpinner(true)
@@ -38,18 +47,19 @@ const loadNews = async (id , categoryName)=>{
 
 }
 
-
+//display all news
 const displayNews = (data,categoryName="All News")=>{
     
     const newsArr =data.data
     
     const newsConatainer = document.getElementById('news-container')
-    document.getElementById('data-found').innerHTML = `${newsArr.length} items found for ${categoryName}`
+    
+    document.getElementById('data-found').innerHTML = `<h5>${newsArr.length} items found for <span class="color-text">${categoryName}</span></h5>`
 
     if(newsArr.length >0){
         newsConatainer.innerHTML = ''
 
-        const noData = "No Data Found"
+        const noData = "No Data Available"
         newsArr.forEach(news=>{
 
             const newsRow = document.createElement("div")
@@ -68,8 +78,8 @@ const displayNews = (data,categoryName="All News")=>{
                     <div class="author-img">
                         <img src="${news.author.img ? news.author.img : noData}" class="author-img px-2" alt="">
                     </div>
-                    <div class="author-name-date my-2">
-                        <h5 class=" px-1">${news.author.name ? news.author.name :noData }</h5>
+                    <div class="author-name-date my-2 ">
+                        <h5 class="color-text px-1">${news.author.name ? news.author.name :noData }</h5>
                         <small class="date px-2">${news.author.published_date ? news.author.published_date : noData}</small>
                     </div>
                 </div>
@@ -93,27 +103,38 @@ const displayNews = (data,categoryName="All News")=>{
   loadSpinner(false)
 }
 
+
+// load single news
 const detailsNews = async (id)=>{
-    const url = `https://openapi.programming-hero.com/api/news/${id}`
-    const res = await fetch(url)
-    const data = await res.json()
-    displayDetails(data);
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${id}`
+        const res = await fetch(url)
+        const data = await res.json()
+        displayDetails(data);
+      } catch (error) {
+        alert(error.message);
+        
+      }
+      
+    
 }
 
 
-
+// display single news on modal
 const displayDetails = data =>{
     const singleNews = data.data[0]
     const detailsNews = document.getElementById("detailedNews")
     detailsNews.innerHTML = `
     <h4>${singleNews.title}</h4>
     <p>${singleNews.details}</p>
-    <h6>${singleNews.author.name}</h6>
-    <p>${singleNews.author.published_date}</p>
+    <h6 class="color-text">Author: ${singleNews.author.name ? singleNews.author.name : "No Data Available"}</h6>
+    <p>Published Date: ${singleNews.author.published_date}</p>
     <small>Rating: ${singleNews.rating.badge} ${singleNews.rating.number}/5.</small>
     `
 }
 
+
+//spinner load
 const loadSpinner = isLoading=>{
     const spinner = document.getElementById('spinner')
     if(isLoading){

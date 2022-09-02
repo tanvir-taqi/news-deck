@@ -1,4 +1,10 @@
 
+
+
+body{
+    background: seashell;
+}
+
 #category-list{
     display: grid;
     grid-template-columns: repeat(8,1fr);
@@ -8,9 +14,7 @@
 
 
 
-.category{
-    border-top: 1px solid rgba(0, 0, 0, 0.425);
-}
+
 li{
     list-style: none;
     cursor: pointer;
@@ -69,8 +73,12 @@ li{
     cursor: pointer;
 
 }
-
-
+.color-text{
+    color: blueviolet;
+}
+.modal-btn{
+    background: rgba(137, 43, 226, 0.411);
+}
 .spinner-1{
     color: rgba(137, 43, 226, 0.212);
 }
