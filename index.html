@@ -56,9 +56,45 @@
 
     </header>
 
+
     <main>
+
+        <!-- ========== data result ======  -->
+        <section>
+            <div class="container bg-light my-5">
+                <h4 class="" id="data-found"></h4>
+            </div>
+        </section>
+
+
+        <!-- ============== news container ===========  -->
         <section>
             <div class="container" id="news-container">
+            </div>
+        </section>
+
+
+        <!-- =============== modal ============  -->
+        <section>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" >
+                Launch static backdrop modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                     
+                        <div class="modal-body"  id="detailedNews">
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

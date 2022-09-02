@@ -5,9 +5,44 @@
 }
 li{
     list-style: none;
+    cursor: pointer;
 }
 .navbar-container{
     padding: 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.411);
 
+}
+
+.news{
+    background: rgba(235, 235, 235, 0.644);
+    margin-bottom: 20px;
+}
+
+.news-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+.author{
+    display: flex;
+
+    align-items: center;
+}
+.view{
+    display: flex;
+    align-items: center;
+
+    
+}
+.author-img{
+    width: 50px;
+    border-radius: 50%;
+}
+.details{
+    color: rgb(137, 43, 226);
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    
 }
