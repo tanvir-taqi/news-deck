@@ -1,16 +1,39 @@
 
 #category-list{
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+
+    
+}
+
+
+
+.category{
+    border-top: 1px solid rgba(0, 0, 0, 0.425);
 }
 li{
     list-style: none;
     cursor: pointer;
+    
+    text-align: center;
+    transition: all 4s ease;
+    padding: 3px 0;
+    
 }
-.navbar-container{
-    padding: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.411);
+.my-brand{
+    font-size: 2rem;
+    font-weight: 800;
+}
+.my-brand span {
+    font-size: 1.4rem;
+    color: blueviolet;
+}
 
+
+.nav-img{
+    width: 50px;
+    
+    border-radius: 50%;
 }
 
 .news{
@@ -36,7 +59,7 @@ li{
     
 }
 .author-img{
-    width: 50px;
+    width: 40px;
     border-radius: 50%;
 }
 .details{
@@ -44,5 +67,37 @@ li{
     font-size: 20px;
     letter-spacing: 0.8px;
     cursor: pointer;
-    
+
 }
+
+
+.spinner-1{
+    color: rgba(137, 43, 226, 0.212);
+}
+.spinner-2{
+    color: rgba(137, 43, 226, 0.514);
+}
+.spinner-3{
+    color: blueviolet;
+}
+
+@media screen and (max-width:992px){
+  
+    #category-list{
+        
+        grid-template-columns: repeat(3,1fr);
+        
+    }
+}
+
+@media screen and (max-width:576px){
+   
+    #category-list{
+        
+        grid-template-columns: repeat(1,1fr);
+        
+    }
+    .news-footer{
+        flex-direction: column;
+    }
+} 

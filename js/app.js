@@ -1,7 +1,7 @@
 
 
 
-
+// load category
 const loadCategory = async()=>{
     const url = `https://openapi.programming-hero.com/api/news/categories`
         const res = await fetch(url)
@@ -9,6 +9,8 @@ const loadCategory = async()=>{
         displayCategory(data);
 }
 
+
+// display categories in a list
 const displayCategory = (data)=>{
     const categories = data.data.news_category
    
@@ -17,7 +19,7 @@ const displayCategory = (data)=>{
         const categoryLi = document.createElement('li')
 
       
-        categoryLi.innerHTML = `<h6 onclick="loadNews(${category.category_id}, '${category.category_name}')">${category.category_name}</h6>`
+        categoryLi.innerHTML = `<h6 onclick="loadNews(${category.category_id},'${category.category_name}')">${category.category_name}</h6>`
         
       categoryContainer.appendChild(categoryLi)
         
@@ -26,9 +28,10 @@ const displayCategory = (data)=>{
 
 const loadNews = async (id , categoryName)=>{
 
+    loadSpinner(true)
 
     
-    const url = `https://openapi.programming-hero.com/api/news/category/0${id }`
+    const url = `https://openapi.programming-hero.com/api/news/category/0${id ? id : '8'}`
     const res = await fetch(url)
     const data = await res.json()
     displayNews(data,categoryName);
@@ -36,7 +39,8 @@ const loadNews = async (id , categoryName)=>{
 }
 
 
-const displayNews = (data,categoryName)=>{
+const displayNews = (data,categoryName="All News")=>{
+    
     const newsArr =data.data
     
     const newsConatainer = document.getElementById('news-container')
@@ -53,23 +57,23 @@ const displayNews = (data,categoryName)=>{
             newsRow.classList.add('news')
 
             newsRow.innerHTML = `
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 ">
-            <img class="news-thumbnail" src="${news.thumbnail_url ? news.thumbnail_url : noData}" alt="">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4  ">
+            <img class="news-thumbnail img-fluid" src="${news.thumbnail_url ? news.thumbnail_url : noData}" alt="">
         </div>
-        <div class="col-12 col-sm-12 col-md-8 col-lg-8 py-4 px-2">
-            <h3 class="">${news.title ? news.title : noData}</h3>
+        <div class="col-12 col-sm-12 col-md-8 col-lg-8 py-4 ">
+            <h4 class="">${news.title ? news.title : noData}</h4>
             <p class="">${news.details.slice(0,200)}...</p>
             <div class="news-footer">
                 <div class="author">
                     <div class="author-img">
                         <img src="${news.author.img ? news.author.img : noData}" class="author-img px-2" alt="">
                     </div>
-                    <div class="author-name-date">
-                        <h5 class=" px-2">${news.author.name ? news.author.name :noData }</h5>
+                    <div class="author-name-date my-2">
+                        <h5 class=" px-1">${news.author.name ? news.author.name :noData }</h5>
                         <small class="date px-2">${news.author.published_date ? news.author.published_date : noData}</small>
                     </div>
                 </div>
-                <div class="view">
+                <div class="view my-2">
                     
                     <h6><span><i class="fa-regular fa-eye"></i></span> ${news.total_view ? news.total_view : noData}</h6>
                 </div>
@@ -86,7 +90,7 @@ const displayNews = (data,categoryName)=>{
                 
                 newsConatainer.innerHTML = `<h2 class="">No News Found</h2>`
     }
-  
+  loadSpinner(false)
 }
 
 const detailsNews = async (id)=>{
@@ -110,7 +114,17 @@ const displayDetails = data =>{
     `
 }
 
+const loadSpinner = isLoading=>{
+    const spinner = document.getElementById('spinner')
+    if(isLoading){
+        spinner.classList.remove('d-none')
+    }else{
+        spinner.classList.add('d-none')
+    }
+
+}
 
 
+loadNews()
 
 loadCategory()
