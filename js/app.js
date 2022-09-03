@@ -51,6 +51,8 @@ const loadNews = async (id , categoryName)=>{
 
 }
 
+// sort the array of objects
+
 const sortArrayOfObject = (a,b)=>{
     if ( a.total_view < b.total_view ){
         return 1;
