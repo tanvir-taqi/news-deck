@@ -2,7 +2,7 @@
 
 
 body{
-    background: seashell;
+    background: rgb(244, 238, 255);
     
 }
 
@@ -21,10 +21,18 @@ body{
     
 }
 .catogory-list-item:hover{
-    background: rgba(159, 70, 243, 0.226);
+    background: rgba(159, 70, 243, 0.123);
+    color: blueviolet;
+    border-radius: 10px;
+}
+.menu-link{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+}
+.menu-link:focus{
     color: blueviolet;
 }
-
 
 li{
     list-style: none;
@@ -47,12 +55,13 @@ li{
 
 .nav-img{
     width: 50px;
+    height: 50px;
     
     border-radius: 50%;
 }
 
 .news{
-    background: rgba(235, 235, 235, 0.644);
+    background: rgb(255, 255, 255);
     margin-bottom: 20px;
 }
 
