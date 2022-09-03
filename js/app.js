@@ -51,10 +51,23 @@ const loadNews = async (id , categoryName)=>{
 
 }
 
+const sortArrayOfObject = (a,b)=>{
+    if ( a.total_view < b.total_view ){
+        return 1;
+      }
+      if ( a.total_view > b.total_view ){
+        return -1;
+      }
+      return 0;
+
+}
+
 //display all news
 const displayNews = (data,categoryName="All News")=>{
+    console.log(data);
     
     const newsArr =data.data
+    const newsArrsorted = newsArr.sort(sortArrayOfObject)
     
     const newsConatainer = document.getElementById('news-container')
     
@@ -64,7 +77,7 @@ const displayNews = (data,categoryName="All News")=>{
         newsConatainer.innerHTML = ''
 
         const noData = "No Data Available"
-        newsArr.forEach(news=>{
+        newsArrsorted.forEach(news=>{
 
             const newsRow = document.createElement("div")
             newsRow.classList.add('row')
