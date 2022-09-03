@@ -37,7 +37,10 @@ body{
     color: blueviolet;
    
 }
-
+.activated{
+    color: blueviolet;
+    border-bottom: 2px solid blueviolet;
+}
 
 
 
