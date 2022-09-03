@@ -36,8 +36,11 @@ const displayCategory = (data)=>{
 
 // load All news 
 const loadNews = async (id , categoryName)=>{
+    
 
     loadSpinner(true)
+    
+    
     const url = `https://openapi.programming-hero.com/api/news/category/0${id ? id : '8'}`
 
     try{
@@ -71,12 +74,14 @@ const displayNews = (data,categoryName="All News")=>{
     const newsArr =data.data
     const newsArrsorted = newsArr.sort(sortArrayOfObject)
     
-    const newsConatainer = document.getElementById('news-container')
     
     document.getElementById('data-found').innerHTML = `<h5>${newsArr.length} items found for <span class="color-text">${categoryName}</span></h5>`
-
+    
+    const newsConatainer = document.getElementById('news-container')
+    
+    newsConatainer.innerHTML = ''
     if(newsArr.length >0){
-        newsConatainer.innerHTML = ''
+        
 
         const noData = "No Data Available"
         newsArrsorted.forEach(news=>{
@@ -113,13 +118,16 @@ const displayNews = (data,categoryName="All News")=>{
             </div>
         </div> `
         newsConatainer.appendChild(newsRow)
+       
         })
     }
     else{
                 
-                newsConatainer.innerHTML = `<h2 class="">No News Found</h2>`
+                newsConatainer.innerHTML = `<h2 class="text-center my-5">No News Found</h2>`
+               
     }
-  loadSpinner(false)
+    loadSpinner(false)
+
 }
 
 
