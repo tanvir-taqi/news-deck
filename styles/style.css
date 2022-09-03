@@ -14,6 +14,16 @@ body{
 
 
 
+.catogory-list-item{
+    
+    padding: 10px;
+    
+}
+.catogory-list-item:hover{
+    background: rgba(159, 70, 243, 0.226);
+    color: blueviolet;
+}
+
 
 li{
     list-style: none;

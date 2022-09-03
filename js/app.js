@@ -27,7 +27,7 @@ const displayCategory = (data)=>{
         const categoryLi = document.createElement('li')
 
       
-        categoryLi.innerHTML = `<h6 onclick="loadNews(${category.category_id},'${category.category_name}')">${category.category_name}</h6>`
+        categoryLi.innerHTML = `<h6 onclick="loadNews(${category.category_id},'${category.category_name}')" class="catogory-list-item">${category.category_name}</h6>`
         
       categoryContainer.appendChild(categoryLi)
         
@@ -47,9 +47,7 @@ const loadNews = async (id , categoryName)=>{
     }
     catch(error){
         alert(error.message)
-    }
-    
-    
+    }   
 
 }
 
