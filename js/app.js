@@ -82,6 +82,7 @@ const displayNews = (data,categoryName="All News")=>{
             const newsRow = document.createElement("div")
             newsRow.classList.add('row')
             newsRow.classList.add('news')
+            newsRow.classList.add('rounded')
 
             newsRow.innerHTML = `
             <div class="col-12 col-sm-12 col-md-4 col-lg-4  ">

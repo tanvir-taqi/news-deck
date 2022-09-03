@@ -2,7 +2,8 @@
 
 
 body{
-    background: rgb(244, 238, 255);
+    /* background: rgb(244, 238, 255); */
+    background: rgba(137, 43, 226, 0.123);
     
 }
 
@@ -29,10 +30,16 @@ body{
     font-size: 1.2rem;
     font-weight: 600;
     color: black;
+    width: 100px;
+    
 }
-.menu-link:focus{
+.menu-link:hover{
     color: blueviolet;
+   
 }
+
+
+
 
 li{
     list-style: none;
@@ -59,7 +66,27 @@ li{
     
     border-radius: 50%;
 }
+.default{
+    border: none;
+    outline: none;
+    background: white;
+}
 
+.pick-btn, .trending-btn{
+    width:130px;
+    padding: 5px 20px;
+    border: 1px solid blueviolet;
+    margin: 5px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.pick-btn{
+    color: white;
+    background: blueviolet;
+}
+.trending-btn{
+    color: blueviolet;
+}
 .news{
     background: rgb(255, 255, 255);
     margin-bottom: 20px;
@@ -97,7 +124,13 @@ li{
     color: blueviolet;
 }
 .modal-btn{
-    background: rgba(137, 43, 226, 0.411);
+    background: rgba(137, 43, 226, 0.122);
+    border: 1px solid blueviolet;
+    font-weight: 500;
+}
+.modal-btn:hover{
+    background: blueviolet;
+    color: white;
 }
 .spinner-1{
     color: rgba(137, 43, 226, 0.212);
